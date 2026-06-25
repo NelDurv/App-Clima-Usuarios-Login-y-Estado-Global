@@ -11,33 +11,26 @@
               <span class="input-group-text bg-white"><i class="fas fa-search"></i></span>
               <input
                 type="text"
-                class="form-control search-input"
+                class="form-control"
                 placeholder="Buscar ciudad..."
                 v-model="searchTerm"
               />
             </div>
           </div>
           <div class="col-md-3 col-6">
-            <button
-              class="btn btn-light w-100"
-              @click="toggleUnit"
-              :title="`Cambiar a ${unitSymbol === '°C' ? 'Fahrenheit' : 'Celsius'}`"
-            >
+            <button class="btn btn-light w-100" @click="toggleUnit">
               <i class="fas fa-thermometer-half me-1"></i>
               Cambiar a {{ unitSymbol === '°C' ? '°F' : '°C' }}
             </button>
           </div>
           <div class="col-md-4 col-6">
-            <button
-              class="btn btn-danger w-100"
-              @click="mostrarAlertaCultivos"
-              title="Ver alertas de bajas temperaturas para cultivos"
-            >
+            <button class="btn btn-danger w-100" @click="mostrarAlertaCultivos">
               <i class="fas fa-leaf me-1"></i> Peligro para Cultivos
             </button>
           </div>
         </div>
-        <div id="api-status" class="small mt-2">
+        
+        <div class="mt-2">
           <span class="badge" :class="apiConnected ? 'bg-success' : 'bg-warning'">
             {{ apiConnected ? '🌐 Conectado a Open-Meteo' : '📀 Usando datos locales' }}
           </span>
@@ -68,61 +61,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Modal de alerta para cultivos -->
-    <div
-      class="modal fade"
-      id="modalCultivos"
-      tabindex="-1"
-      aria-labelledby="modalCultivosLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header bg-danger text-white">
-            <h5 class="modal-title" id="modalCultivosLabel">
-              <i class="fas fa-exclamation-triangle me-2"></i>¡Alerta! Riesgo para Cultivos
-            </h5>
-            <button
-              type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="modal"
-              aria-label="Cerrar"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div v-if="ciudadesEnPeligro.length === 0" class="text-center">
-              <i class="fas fa-check-circle fa-3x text-success mb-2"></i>
-              <p>No se registran temperaturas peligrosas para cultivos en ninguna ciudad.</p>
-            </div>
-            <div v-else>
-              <p>
-                <strong
-                  >Las siguientes ciudades presentan temperaturas mínimas bajo 2°C, lo que puede
-                  dañar los cultivos:</strong
-                >
-              </p>
-              <ul class="list-group">
-                <li
-                  v-for="ciudad in ciudadesEnPeligro"
-                  :key="ciudad.nombre"
-                  class="list-group-item d-flex justify-content-between align-items-center"
-                >
-                  {{ ciudad.nombre }}
-                  <span class="badge bg-primary rounded-pill">{{ ciudad.tempMin }}°C</span>
-                </li>
-              </ul>
-              <p class="mt-3 small text-muted">
-                * Temperaturas iguales o inferiores a 2°C ponen en riesgo a cultivos sensibles.
-              </p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -141,16 +79,8 @@ const isAuthenticated = computed(() => store.state.auth.isAuthenticated)
 const userName = computed(() => store.getters['auth/getUserName'])
 
 const ciudades = [
-  'Arica',
-  'Antofagasta',
-  'Iquique',
-  'La Serena',
-  'Valparaíso',
-  'Santiago',
-  'Rancagua',
-  'Concepción',
-  'Temuco',
-  'Puerto Montt',
+  'Arica', 'Antofagasta', 'Iquique', 'La Serena', 'Valparaíso',
+  'Santiago', 'Rancagua', 'Concepción', 'Temuco', 'Puerto Montt'
 ]
 
 const climas = ref([])
@@ -161,32 +91,18 @@ const ciudadesEnPeligro = ref([])
 
 const filteredClimas = computed(() => {
   if (!searchTerm.value) return climas.value
-  const term = searchTerm.value.toLowerCase()
-  return climas.value.filter((c) => c.nombre.toLowerCase().includes(term))
+  return climas.value.filter(c => c.nombre.toLowerCase().includes(searchTerm.value.toLowerCase()))
 })
 
-const calcularTempMin = (tempActual) => {
-  return tempActual - (Math.floor(Math.random() * 5) + 1)
-}
-
 const mostrarAlertaCultivos = () => {
-  const peligro = []
-  for (const clima of climas.value) {
-    const tempMin = calcularTempMin(clima.temperatura)
-    if (tempMin < 2) {
-      peligro.push({
-        nombre: clima.nombre,
-        tempMin: tempMin,
-      })
-    }
-  }
+  const peligro = climas.value
+    .filter(c => c.temperatura - 5 < 2)
+    .map(c => ({ nombre: c.nombre, tempMin: c.temperatura - 5 }))
+  
   ciudadesEnPeligro.value = peligro
-
-  const modalElement = document.getElementById('modalCultivos')
-  if (modalElement && window.bootstrap) {
-    const modal = new window.bootstrap.Modal(modalElement)
-    modal.show()
-  }
+  alert(peligro.length 
+    ? `Ciudades en riesgo: ${peligro.map(c => `${c.nombre} (${c.tempMin}°C)`).join(', ')}`
+    : 'No hay peligro para cultivos.')
 }
 
 onMounted(async () => {
@@ -201,47 +117,3 @@ onMounted(async () => {
   loadingCities.value = false
 })
 </script>
-
-<style scoped>
-.grid-container {
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2rem;
-  border-radius: 20px;
-  padding: 3rem;
-}
-
-@media (max-width: 1200px) {
-  .grid-container {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-    padding: 2rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .grid-container {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .grid-container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    padding: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    padding: 1rem;
-  }
-}
-</style>

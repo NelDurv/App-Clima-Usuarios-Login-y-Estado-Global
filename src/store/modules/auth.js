@@ -64,8 +64,8 @@ const actions = {
         commit('SET_ERROR', null)
 
         try {
-            // Usando mockApi
-            const response = await import('@/services/mockApi').then(m => m.default.login(credentials))
+            const mockApi = await import('@/services/mockApi').then(m => m.default)
+            const response = await mockApi.login(credentials)
 
             if (response.success) {
                 commit('SET_USER', response.user)
@@ -93,7 +93,8 @@ const actions = {
         commit('SET_ERROR', null)
 
         try {
-            const response = await import('@/services/mockApi').then(m => m.default.register(userData))
+            const mockApi = await import('@/services/mockApi').then(m => m.default)
+            const response = await mockApi.register(userData)
 
             if (response.success) {
                 commit('SET_USER', response.user)

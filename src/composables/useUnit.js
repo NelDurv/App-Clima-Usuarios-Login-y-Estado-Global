@@ -1,7 +1,7 @@
 import { ref, computed } from 'vue'
 
 export function useUnit() {
-    const unit = ref('C') // 'C' or 'F'
+    const unit = ref('C')
 
     const toggleUnit = () => {
         unit.value = unit.value === 'C' ? 'F' : 'C'
@@ -15,10 +15,5 @@ export function useUnit() {
 
     const unitSymbol = computed(() => unit.value === 'C' ? '°C' : '°F')
 
-    return {
-        unit,
-        toggleUnit,
-        convertTemp,
-        unitSymbol
-    }
+    return { unit, toggleUnit, convertTemp, unitSymbol }
 }

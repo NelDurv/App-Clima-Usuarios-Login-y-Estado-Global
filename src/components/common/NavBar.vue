@@ -19,14 +19,12 @@
       
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-center">
-          <!-- Inicio -->
           <li class="nav-item">
             <router-link to="/" class="nav-link text-white">
               <i class="fas fa-home"></i> Inicio
             </router-link>
           </li>
           
-          <!-- Rutas protegidas (solo si está autenticado) -->
           <template v-if="isAuthenticated">
             <li class="nav-item">
               <router-link to="/favoritos" class="nav-link text-white">
@@ -43,14 +41,12 @@
             </li>
           </template>
           
-          <!-- Autenticación -->
           <li class="nav-item">
             <template v-if="isAuthenticated">
               <div class="d-flex align-items-center gap-2 ms-2">
                 <span class="text-white-50">|</span>
                 <span class="text-white">
-                  <i class="fas fa-user-circle"></i>
-                  {{ userName }}
+                  <i class="fas fa-user-circle"></i> {{ userName }}
                 </span>
                 <button class="btn btn-outline-light btn-sm" @click="handleLogout">
                   <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
@@ -91,47 +87,3 @@ const handleLogout = async () => {
   router.push('/login')
 }
 </script>
-
-<style scoped>
-.navbar-nav .nav-link {
-  padding: 0.5rem 1rem;
-  transition: all 0.2s ease;
-  border-radius: 8px;
-}
-
-.navbar-nav .nav-link:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.navbar-nav .nav-link.router-link-active {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-.btn-outline-light:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.navbar-toggler {
-  border-color: rgba(255, 255, 255, 0.5);
-}
-
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-
-@media (max-width: 991px) {
-  .navbar-nav .nav-item {
-    margin: 0.25rem 0;
-  }
-  
-  .navbar-nav .d-flex {
-    flex-direction: column;
-    gap: 0.5rem !important;
-    width: 100%;
-  }
-  
-  .navbar-nav .btn {
-    width: 100%;
-  }
-}
-</style>

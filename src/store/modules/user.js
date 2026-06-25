@@ -10,13 +10,15 @@ const getters = {
     getUserPreferences: state => state.preferences,
     getFavoriteCities: state => state.favorites,
     getUnit: state => state.preferences.unit,
-    getTheme: state => state.preferences.theme,
-    isFavorite: (state) => (city) => state.favorites.includes(city)
+    getTheme: state => state.preferences.theme
 }
 
 const mutations = {
-    SET_PREFERENCES(state, preferences) {
-        state.preferences = { ...state.preferences, ...preferences }
+    SET_UNIT(state, unit) {
+        state.preferences.unit = unit
+    },
+    SET_THEME(state, theme) {
+        state.preferences.theme = theme
     },
     SET_FAVORITES(state, favorites) {
         state.favorites = favorites
@@ -28,36 +30,19 @@ const mutations = {
     },
     REMOVE_FAVORITE(state, city) {
         state.favorites = state.favorites.filter(c => c !== city)
-    },
-    SET_UNIT(state, unit) {
-        state.preferences.unit = unit
-    },
-    SET_THEME(state, theme) {
-        state.preferences.theme = theme
     }
 }
 
 const actions = {
-    updatePreferences({ commit }, preferences) {
-        commit('SET_PREFERENCES', preferences)
+    setUnit({ commit }, unit) {
+        commit('SET_UNIT', unit)
     },
-
-    toggleUnit({ commit, state }) {
-        const newUnit = state.preferences.unit === 'C' ? 'F' : 'C'
-        commit('SET_UNIT', newUnit)
-        return newUnit
+    setTheme({ commit }, theme) {
+        commit('SET_THEME', theme)
     },
-
-    toggleTheme({ commit, state }) {
-        const newTheme = state.preferences.theme === 'light' ? 'dark' : 'light'
-        commit('SET_THEME', newTheme)
-        return newTheme
-    },
-
     addFavorite({ commit }, city) {
         commit('ADD_FAVORITE', city)
     },
-
     removeFavorite({ commit }, city) {
         commit('REMOVE_FAVORITE', city)
     }

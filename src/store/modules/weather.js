@@ -1,28 +1,21 @@
+import { useWeather } from '../../composables/useWeather'
+
 const state = {
+    cities: [
+        'Arica', 'Antofagasta', 'Iquique', 'La Serena', 'Valparaíso',
+        'Santiago', 'Rancagua', 'Concepción', 'Temuco', 'Puerto Montt'
+    ],
     currentWeather: {},
     forecast: {},
     loading: false,
-    error: null,
-    cities: [
-        'Arica',
-        'Antofagasta',
-        'Iquique',
-        'La Serena',
-        'Valparaíso',
-        'Santiago',
-        'Rancagua',
-        'Concepción',
-        'Temuco',
-        'Puerto Montt'
-    ]
+    error: null
 }
 
 const getters = {
     getCities: state => state.cities,
     getCurrentWeather: state => state.currentWeather,
     getForecast: state => state.forecast,
-    isLoading: state => state.loading,
-    getError: state => state.error
+    isLoading: state => state.loading
 }
 
 const mutations = {
@@ -37,20 +30,14 @@ const mutations = {
     },
     SET_FORECAST(state, data) {
         state.forecast = data
-    },
-    CLEAR_WEATHER(state) {
-        state.currentWeather = {}
-        state.forecast = {}
     }
 }
 
 const actions = {
     async fetchCurrentWeather({ commit }, cityName) {
         commit('SET_LOADING', true)
-        commit('SET_ERROR', null)
-
         try {
-            const { fetchCurrentWeather } = await import('@/composables/useWeather')
+            const { fetchCurrentWeather } = useWeather()
             const result = await fetchCurrentWeather({ nombre: cityName })
             commit('SET_CURRENT_WEATHER', result)
             commit('SET_LOADING', false)
@@ -64,10 +51,8 @@ const actions = {
 
     async fetchForecast({ commit }, cityName) {
         commit('SET_LOADING', true)
-        commit('SET_ERROR', null)
-
         try {
-            const { fetchForecast } = await import('@/composables/useWeather')
+            const { fetchForecast } = useWeather()
             const result = await fetchForecast(cityName)
             commit('SET_FORECAST', result)
             commit('SET_LOADING', false)

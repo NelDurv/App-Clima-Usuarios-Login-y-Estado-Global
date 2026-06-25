@@ -21,12 +21,3 @@ import { useStore } from 'vuex'
 const store = useStore()
 const isAuthenticated = computed(() => store.state.auth.isAuthenticated)
 </script>
-
-<style scoped>
-.auth-guard-message {
-  min-height: calc(100vh - 200px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-</style>

@@ -1,6 +1,5 @@
 import { ref } from 'vue'
 
-// Coordenadas de ciudades
 const ciudadesCoord = {
     "Arica": { lat: -18.4780, lon: -70.3210 },
     "Antofagasta": { lat: -23.6500, lon: -70.4000 },
@@ -14,7 +13,6 @@ const ciudadesCoord = {
     "Puerto Montt": { lat: -41.4718, lon: -72.9394 }
 }
 
-// Datos de respaldo local
 const datosLocal = {
     "Arica": { temp: 22, clima: "soleado" },
     "Antofagasta": { temp: 20, clima: "parcial despejado" },
@@ -29,15 +27,16 @@ const datosLocal = {
 }
 
 function codigoATipoClima(code) {
-    if (code === 0) return "soleado";
-    if (code === 1 || code === 2) return "parcial despejado";
-    if (code === 3) return "nublado";
-    if (code >= 51 && code <= 67) return "lluvioso";
-    if (code >= 95 && code <= 99) return "tormenta eléctrica";
-    return "parcial despejado";
+    if (code === 0) return "soleado"
+    if (code === 1 || code === 2) return "parcial despejado"
+    if (code === 3) return "nublado"
+    if (code >= 51 && code <= 67) return "lluvioso"
+    if (code >= 95 && code <= 99) return "tormenta eléctrica"
+    return "parcial despejado"
 }
 
-function getIconoByTipo(tipo) {
+// ✅ Función unificada y exportada (sin duplicación)
+export const getIconoByTipo = (tipo) => {
     const map = {
         "soleado": "fa-sun",
         "parcial despejado": "fa-cloud-sun",
@@ -46,6 +45,11 @@ function getIconoByTipo(tipo) {
         "tormenta eléctrica": "fa-bolt"
     }
     return map[tipo] || "fa-cloud"
+}
+
+export const capitalizar = (texto) => {
+    if (!texto) return ""
+    return texto.charAt(0).toUpperCase() + texto.slice(1)
 }
 
 export function useWeather() {
@@ -67,7 +71,6 @@ export function useWeather() {
             const humedad = Math.round(data.current.relative_humidity_2m)
             const viento = Math.round(data.current.wind_speed_10m)
 
-            // Determinar tipo de clima basado en temperatura y humedad
             let tipoClima = "parcial despejado"
             if (temp > 25) tipoClima = "soleado"
             else if (temp > 22) tipoClima = "parcial despejado"
@@ -118,7 +121,10 @@ export function useWeather() {
             const diasSemana = ["DOMINGO", "LUNES", "MARTES", "MIÉRCOLES", "JUEVES", "VIERNES", "SÁBADO"]
 
             for (let i = 0; i < 6 && i < data.daily.time.length; i++) {
-                const fecha = new Date(data.daily.time[i])
+                // ✅ Corrección del desfase horario dividiendo la cadena YYYY-MM-DD
+                const parts = data.daily.time[i].split('-')
+                const fecha = new Date(parts[0], parts[1] - 1, parts[2])
+
                 const tipoClima = codigoATipoClima(data.daily.weathercode[i])
                 pronostico.push({
                     diaSemana: diasSemana[fecha.getDay()],
@@ -139,34 +145,10 @@ export function useWeather() {
         }
     }
 
-    // Función para capitalizar texto
-    const capitalizar = (texto) => {
-        if (!texto) return ""
-        return texto.charAt(0).toUpperCase() + texto.slice(1)
-    }
-
     return {
         fetchCurrentWeather,
         fetchForecast,
         loading,
-        error,
-        capitalizar
+        error
     }
-}
-
-// Exportar funciones individuales para uso en otros archivos
-export const capitalizar = (texto) => {
-    if (!texto) return ""
-    return texto.charAt(0).toUpperCase() + texto.slice(1)
-}
-
-export const getIconoByTipo = (tipo) => {
-    const map = {
-        "soleado": "fa-sun",
-        "parcial despejado": "fa-cloud-sun",
-        "nublado": "fa-cloud",
-        "lluvioso": "fa-cloud-showers-heavy",
-        "tormenta eléctrica": "fa-bolt"
-    }
-    return map[tipo] || "fa-cloud"
 }
