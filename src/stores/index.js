@@ -1,12 +1,12 @@
-import { ref, computed } from 'vue'
-import { defineStore } from 'pinia'
+import { createStore } from 'vuex'
+import auth from './modules/auth'
+import user from './modules/user'
+import weather from './modules/weather'
 
-export const useCounterStore = defineStore('counter', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
+export default createStore({
+  modules: {
+    auth,
+    user,
+    weather
   }
-
-  return { count, doubleCount, increment }
 })
