@@ -1,3 +1,11 @@
+<img width="1337" height="630" alt="panel inicio" src="https://github.com/user-attachments/assets/28da87ec-7d1e-45fd-806e-8727c738373f" />
+
+
+ 
+ 
+ 
+ 
+ 
  Vue Clima Chile - App de Clima con Autenticación
 Aplicación web de clima desarrollada con Vue 3 que permite consultar el pronóstico de ciudades chilenas, con sistema de autenticación de usuarios y personalización de preferencias.
 
@@ -56,6 +64,13 @@ modulo7 App/
  Autenticación
 Registro de nuevos usuarios
 
+
+<img width="1032" height="649" alt="panel usuario" src="https://github.com/user-attachments/assets/996abfa4-2625-4188-8e26-8e9d06dce94c" />
+
+
+<img width="1053" height="388" alt="sesion usuario" src="https://github.com/user-attachments/assets/185d60c2-33fc-46ee-9e60-eb583b48cf74" />
+
+
 Inicio de sesión con credenciales
 
 Cierre de sesión
@@ -68,6 +83,7 @@ Protección de rutas con Navigation Guards
 Consulta de clima actual por ciudad
 
 Pronóstico extendido a 6 días
+<img width="1067" height="493" alt="detalle 6 dias" src="https://github.com/user-attachments/assets/b1ac9d86-e9a6-4e89-acbd-dae5e1fdf237" />
 
 Estadísticas semanales (temperaturas, días soleados/lluviosos)
 
@@ -75,6 +91,8 @@ Alertas climáticas personalizadas
 
  Personalización
 Gestión de ciudades favoritas por usuario
+<img width="1046" height="496" alt="favorito usuario" src="https://github.com/user-attachments/assets/106cce8e-8a3d-43d8-8d89-84138700b59f" />
+
 
 Cambio entre °C y °F
 
