@@ -32,7 +32,7 @@
         
         <div class="mt-2">
           <span class="badge" :class="apiConnected ? 'bg-success' : 'bg-warning'">
-            {{ apiConnected ? '🌐 Conectado a Open-Meteo' : '📀 Usando datos locales' }}
+            {{ apiConnected ? ' Conectado a Open-Meteo' : ' Usando datos locales' }}
           </span>
           <span v-if="isAuthenticated" class="badge bg-info ms-2">
             <i class="fas fa-user-check"></i> {{ userName }}

@@ -750,7 +750,7 @@ body::after {
 }
 
 .card-header {
-    background: rgba(255, 230, 109, 0.08) !important;
+    background: rgba(129, 208, 240, 0.08) !important;
     border-bottom: 2px solid var(--border-bright) !important;
     color: rgba(255, 255, 255, 0.9);
     padding: 1.2rem 1.8rem;

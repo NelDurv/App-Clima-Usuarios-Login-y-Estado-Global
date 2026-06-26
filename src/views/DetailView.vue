@@ -150,7 +150,7 @@ function generarAlertas(est) {
   if (est.tempProm > 28) {
     alerts.push({
       clase: 'alert-danger', icono: 'fa-temperature-high',
-      titulo: '🔥 Alerta de Calor Extremo',
+      titulo: ' Alerta de Calor Extremo',
       mensaje: `Promedio de ${est.tempProm}°C`
     })
   }
@@ -164,7 +164,7 @@ function generarAlertas(est) {
   if (est.diasLluvia >= 3) {
     alerts.push({
       clase: 'alert-primary', icono: 'fa-cloud-rain',
-      titulo: '🌧️ Semana Lluviosa',
+      titulo: ' Semana Lluviosa',
       mensaje: `${est.diasLluvia} días de lluvia`
     })
   }
