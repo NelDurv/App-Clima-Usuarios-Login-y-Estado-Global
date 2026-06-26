@@ -1,11 +1,5 @@
 <img width="1337" height="630" alt="panel inicio" src="https://github.com/user-attachments/assets/28da87ec-7d1e-45fd-806e-8727c738373f" />
 
-
- 
- 
- 
- 
- 
  Vue Clima Chile - App de Clima con Autenticación
 Aplicación web de clima desarrollada con Vue 3 que permite consultar el pronóstico de ciudades chilenas, con sistema de autenticación de usuarios y personalización de preferencias.
 
@@ -64,13 +58,6 @@ modulo7 App/
  Autenticación
 Registro de nuevos usuarios
 
-
-<img width="1032" height="649" alt="panel usuario" src="https://github.com/user-attachments/assets/996abfa4-2625-4188-8e26-8e9d06dce94c" />
-
-
-<img width="1053" height="388" alt="sesion usuario" src="https://github.com/user-attachments/assets/185d60c2-33fc-46ee-9e60-eb583b48cf74" />
-
-
 Inicio de sesión con credenciales
 
 Cierre de sesión
@@ -83,7 +70,6 @@ Protección de rutas con Navigation Guards
 Consulta de clima actual por ciudad
 
 Pronóstico extendido a 6 días
-<img width="1067" height="493" alt="detalle 6 dias" src="https://github.com/user-attachments/assets/b1ac9d86-e9a6-4e89-acbd-dae5e1fdf237" />
 
 Estadísticas semanales (temperaturas, días soleados/lluviosos)
 
@@ -91,8 +77,6 @@ Alertas climáticas personalizadas
 
  Personalización
 Gestión de ciudades favoritas por usuario
-<img width="1046" height="496" alt="favorito usuario" src="https://github.com/user-attachments/assets/106cce8e-8a3d-43d8-8d89-84138700b59f" />
-
 
 Cambio entre °C y °F
 
@@ -112,20 +96,24 @@ Git para clonar el repositorio
 bash
 git clone https://github.com/tu-usuario/vue-clima-chile.git
 cd modulo7\ App
-2. Instalar Dependencias
+
+3. Instalar Dependencias
 bash
 npm install --legacy-peer-deps
-3. Ejecutar en Desarrollo
+
+4. Ejecutar en Desarrollo
 bash
 npm run dev
-La aplicación estará disponible en: http://localhost:5173
+La aplicación estará disponible en:
 
-4. Construir para Producción
+5. Construir para Producción
 bash
 npm run build
-5. Vista Previa de Producción
+
+6. Vista Previa de Producción
 bash
 npm run preview
+
  Scripts Disponibles
 Comando	Descripción
 npm run dev	Inicia servidor de desarrollo
@@ -134,27 +122,28 @@ npm run preview	Vista previa de producción
 npm run test:unit	Ejecuta pruebas unitarias
 npm run test:unit:watch	Pruebas en modo watch
 npm run test:unit:coverage	Pruebas con cobertura
- Credenciales de Demo
+
+Credenciales de Demo
 Email	Contraseña	Nombre
 juan@email.com	123456	Juan Pérez
 maria@email.com	123456	María González
 carlos@email.com	123456	Carlos Rojas
  Capturas de Pantalla
  Página Principal
-text
-[Espacio para captura de pantalla - HomeView]
+
+<img width="1032" height="649" alt="panel usuario" src="https://github.com/user-attachments/assets/996abfa4-2625-4188-8e26-8e9d06dce94c" />
  Inicio de Sesión
-text
-[Espacio para captura de pantalla - LoginView]
+
+<img width="1067" height="493" alt="detalle 6 dias" src="https://github.com/user-attachments/assets/b1ac9d86-e9a6-4e89-acbd-dae5e1fdf237" />
  Detalle del Clima
-text
-[Espacio para captura de pantalla - DetailView]
+
+<img width="1046" height="496" alt="favorito usuario" src="https://github.com/user-attachments/assets/106cce8e-8a3d-43d8-8d89-84138700b59f" />
  Favoritos
-text
-[Espacio para captura de pantalla - FavoritesView]
+
+<img width="1053" height="388" alt="sesion usuario" src="https://github.com/user-attachments/assets/185d60c2-33fc-46ee-9e60-eb583b48cf74" />
  Preferencias
-text
-[Espacio para captura de pantalla - PreferencesView]
+
+
  API Utilizada
 La aplicación consume datos de Open-Meteo API:
 
