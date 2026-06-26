@@ -1,7 +1,9 @@
+<<<<<<< HEAD
 
 ![Panel de Inicio App](./public/screenshots/panel_inicio.png)
 
- Vue Clima Chile - App de Clima con Autenticación
+
+Vue Clima Chile - App de Clima con Autenticación
 Aplicación web de clima desarrollada con Vue 3 que permite consultar el pronóstico de ciudades chilenas, con sistema de autenticación de usuarios y personalización de preferencias.
 
  Tabla de Contenidos
@@ -72,6 +74,7 @@ Información de perfil de usuario
 
 ******************************
 Requisitos Previos
+
 Node.js v16 o superior
 
 npm v8 o superior
@@ -86,20 +89,24 @@ bash
 git clone https://github.com/NelDurv/App-Clima-Usuarios-Login-y-Estado-Global.git
 
 cd modulo7\ App
-2. Instalar Dependencias
+
+3. Instalar Dependencias
 bash
 npm install --legacy-peer-deps
-3. Ejecutar en Desarrollo
+
+4. Ejecutar en Desarrollo
 bash
 npm run dev
-La aplicación estará disponible en: http://localhost:5173
+La aplicación estará disponible en:
 
-4. Construir para Producción
+5. Construir para Producción
 bash
 npm run build
-5. Vista Previa de Producción
+
+6. Vista Previa de Producción
 bash
 npm run preview
+<<<<<<< HEAD
 *****************************
  Scripts Disponibles
 Comando	                      Descripción
@@ -131,7 +138,24 @@ Pronostico 6 dias
 ![Seccion de Usuario](./public/screenshots/sesion_usuario.png)
 
 *****************************
- API Utilizada
+
+ Scripts Disponibles
+Comando	                    Descripción
+npm run dev	                Inicia servidor de desarrollo
+npm run build	            Construye para producción
+npm run preview	            Vista previa de producción
+npm run test:unit	        Ejecuta pruebas unitarias
+npm run test:unit:watch	    Pruebas en modo watch
+npm run test:unit:coverage	Pruebas con cobertura
+*****************************
+Credenciales de Demo
+Email	              Contraseña	Nombre
+juan@email.com	          123456	Juan Pérez
+maria@email.com	          123456	María González
+carlos@email.com	      123456	Carlos Rojas
+ 
+*****************************
+API Utilizada
 La aplicación consume datos de Open-Meteo API:
 
 Clima actual: https://api.open-meteo.com/v1/forecast
