@@ -168,9 +168,9 @@ La aplicacion consume datos de [Open-Meteo API](https://open-meteo.com/):
 
 ---
 
-## Seguridad
+## Seguridad ✅🚢
 
-![Security](https://img.shields.io/badge/security-passed-brightgreen?style=for-the-badge)
+¡Felicidades! Sitio Seguro Para Navegar
 
 | Tipo | Resultado |
 |---|---|
