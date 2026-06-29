@@ -116,7 +116,7 @@ npm run preview
 
 La aplicación está desplegada en **Vercel** y puede visitarse en:
 
-**https://modulo7-app.vercel.app** (reemplaza con tu URL real)
+**https://app-clima-usuarios-login-y-estado-global-331nef0e4.vercel.app/** verificar 
 
 ### Clonar y desplegar tu propia versión
 
