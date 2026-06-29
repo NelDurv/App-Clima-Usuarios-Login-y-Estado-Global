@@ -168,6 +168,20 @@ La aplicacion consume datos de [Open-Meteo API](https://open-meteo.com/):
 
 ---
 
+## Seguridad
+
+![Security](https://img.shields.io/badge/security-passed-brightgreen?style=for-the-badge)
+
+| Tipo | Resultado |
+|---|---|
+| `npm audit` | 0 vulnerabilidades |
+| `v-html` / `innerHTML` (XSS) | No se usa |
+| `eval()` | No se usa |
+| API keys / secrets hardcodeados | No hay |
+| Contraseñas en texto plano | Solo en `mockApi.js` (simulacion educativa) |
+
+---
+
 ## Capturas de Pantalla
 
 ### Pagina Principal

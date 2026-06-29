@@ -62,6 +62,31 @@
       </div>
     </div>
   </div>
+
+  <AlertModal
+    :visible="alertaVisible"
+    titulo="Alerta de Cultivos"
+    iconClass="fas fa-seedling"
+    @close="alertaVisible = false"
+  >
+    <div v-if="ciudadesEnPeligro.length">
+      <p><strong>Ciudades con riesgo de heladas (temp. minima &lt; 2°C):</strong></p>
+      <ul class="lista-riesgo">
+        <li v-for="c in ciudadesEnPeligro" :key="c.nombre">
+          <i class="fas fa-exclamation-triangle" style="color:#D4813D"></i>
+          {{ c.nombre }} — <strong>{{ Math.round(c.tempMin) }}°C</strong>
+        </li>
+      </ul>
+      <p class="mt-2 mb-0">
+        <i class="fas fa-lightbulb" style="color:#D4813D"></i>
+        Se recomienda proteger los cultivos sensibles.
+      </p>
+    </div>
+    <div v-else class="text-center py-2">
+      <i class="fas fa-check-circle" style="color:#4CAF50; font-size:2rem;"></i>
+      <p class="mt-2 mb-0">No hay peligro para cultivos en este momento.</p>
+    </div>
+  </AlertModal>
 </template>
 
 <script setup>
@@ -70,6 +95,7 @@ import { useStore } from 'vuex'
 import { useWeather } from '../composables/useWeather'
 import { useUnit } from '../composables/useUnit'
 import WeatherCard from '../components/weather/WeatherCard.vue'
+import AlertModal from '../components/common/AlertModal.vue'
 
 const store = useStore()
 const { fetchCurrentWeather } = useWeather()
@@ -88,6 +114,7 @@ const loadingCities = ref(true)
 const apiConnected = ref(true)
 const searchTerm = ref('')
 const ciudadesEnPeligro = ref([])
+const alertaVisible = ref(false)
 
 const filteredClimas = computed(() => {
   if (!searchTerm.value) return climas.value
@@ -95,14 +122,10 @@ const filteredClimas = computed(() => {
 })
 
 const mostrarAlertaCultivos = () => {
-  const peligro = climas.value
+  ciudadesEnPeligro.value = climas.value
     .filter(c => c.temperatura - 5 < 2)
     .map(c => ({ nombre: c.nombre, tempMin: c.temperatura - 5 }))
-  
-  ciudadesEnPeligro.value = peligro
-  alert(peligro.length 
-    ? `Ciudades en riesgo: ${peligro.map(c => `${c.nombre} (${c.tempMin}°C)`).join(', ')}`
-    : 'No hay peligro para cultivos.')
+  alertaVisible.value = true
 }
 
 onMounted(async () => {
@@ -117,3 +140,21 @@ onMounted(async () => {
   loadingCities.value = false
 })
 </script>
+
+<style scoped>
+.lista-riesgo {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.lista-riesgo li {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  color: #000000;
+}
+
+.lista-riesgo li:last-child {
+  border-bottom: none;
+}
+</style>
