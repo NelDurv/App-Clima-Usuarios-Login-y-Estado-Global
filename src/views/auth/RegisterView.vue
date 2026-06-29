@@ -1,8 +1,8 @@
 <template>
-  <div class="auth-container" style="background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);">
+  <div class="auth-container">
     <div class="auth-card">
       <div class="auth-header">
-        <i class="fas fa-user-plus auth-icon" style="color: #48bb78;"></i>
+        <i class="fas fa-user-plus auth-icon"></i>
         <h1>Crear Cuenta</h1>
         <p>Regístrate para acceder a todas las funcionalidades</p>
       </div>
@@ -43,14 +43,14 @@
           <i class="fas fa-exclamation-circle"></i> {{ error }}
         </div>
         
-        <button type="submit" class="btn-login" style="background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);" :disabled="loading">
+        <button type="submit" class="btn-login" :disabled="loading">
           <span v-if="loading" class="spinner-border spinner-border-sm" role="status"></span>
           <span v-else><i class="fas fa-user-plus"></i> Registrarse</span>
         </button>
       </form>
       
       <div class="auth-footer">
-        <p>¿Ya tienes cuenta? <router-link to="/login" style="color: #48bb78; font-weight: 600;">Inicia sesión aquí</router-link></p>
+        <p>¿Ya tienes cuenta? <router-link to="/login" class="link-register">Inicia sesión aquí</router-link></p>
       </div>
     </div>
   </div>

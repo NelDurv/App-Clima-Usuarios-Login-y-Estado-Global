@@ -1,8 +1,8 @@
 <template>
   <div class="container py-4">
     <div class="preferences-header">
-      <h1><i class="fas fa-cog text-primary"></i> Mis Preferencias</h1>
-      <p class="text-muted">Personaliza tu experiencia en la aplicación</p>
+      <h1><i class="fas fa-cog text-verde"></i> Mis Preferencias</h1>
+      <p>Personaliza tu experiencia en la aplicación</p>
     </div>
     
     <div class="preferences-grid">

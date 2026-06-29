@@ -1,7 +1,7 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-primary bg-gradient px-4">
+  <nav class="navbar navbar-expand-lg px-4">
     <div class="container-fluid">
-      <router-link to="/" class="navbar-brand text-white">
+      <router-link to="/" class="navbar-brand">
         <i class="fas fa-cloud-sun me-2"></i>Vue Clima Chile
       </router-link>
       
@@ -20,14 +20,14 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto align-items-center">
           <li class="nav-item">
-            <router-link to="/" class="nav-link text-white">
+            <router-link to="/" class="nav-link">
               <i class="fas fa-home"></i> Inicio
             </router-link>
           </li>
           
           <template v-if="isAuthenticated">
             <li class="nav-item">
-              <router-link to="/favoritos" class="nav-link text-white">
+              <router-link to="/favoritos" class="nav-link">
                 <i class="fas fa-heart text-danger"></i> Favoritos
                 <span v-if="favoritesCount > 0" class="badge bg-danger rounded-pill ms-1">
                   {{ favoritesCount }}
@@ -35,7 +35,7 @@
               </router-link>
             </li>
             <li class="nav-item">
-              <router-link to="/preferencias" class="nav-link text-white">
+              <router-link to="/preferencias" class="nav-link">
                 <i class="fas fa-cog"></i> Preferencias
               </router-link>
             </li>
@@ -45,7 +45,7 @@
             <template v-if="isAuthenticated">
               <div class="d-flex align-items-center gap-2 ms-2">
                 <span class="text-white-50">|</span>
-                <span class="text-white">
+                <span class="text-crema">
                   <i class="fas fa-user-circle"></i> {{ userName }}
                 </span>
                 <button class="btn btn-outline-light btn-sm" @click="handleLogout">

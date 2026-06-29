@@ -21,7 +21,7 @@
     </div>
 
     <div v-if="loading" class="text-center py-5">
-      <div class="spinner-border text-primary" role="status">
+      <div class="spinner-border" role="status">
         <span class="visually-hidden">Cargando...</span>
       </div>
     </div>
@@ -41,33 +41,33 @@
 
       <div class="row mt-5 g-4">
         <div class="col-md-6">
-          <div class="card shadow-sm h-100">
-            <div class="card-header bg-primary text-white">
+          <div class="card">
+            <div class="card-header">
               <i class="fas fa-chart-line me-2"></i>Estadísticas
             </div>
             <div class="card-body">
               <div class="row text-center">
                 <div class="col-4">
-                  <div class="display-6 text-danger">{{ convertTemp(estadisticas.tempMax) }}°</div>
+                  <div class="display-6 text-terracota">{{ convertTemp(estadisticas.tempMax) }}°</div>
                   <small>Máxima</small>
                 </div>
                 <div class="col-4">
-                  <div class="display-6 text-primary">{{ convertTemp(estadisticas.tempMin) }}°</div>
+                  <div class="display-6 text-cielo">{{ convertTemp(estadisticas.tempMin) }}°</div>
                   <small>Mínima</small>
                 </div>
                 <div class="col-4">
-                  <div class="display-6 text-success">{{ convertTemp(estadisticas.tempProm) }}°</div>
+                  <div class="display-6 text-verde">{{ convertTemp(estadisticas.tempProm) }}°</div>
                   <small>Promedio</small>
                 </div>
               </div>
               <hr />
               <div class="row text-center">
                 <div class="col-6">
-                  <i class="fas fa-sun fa-2x text-warning"></i>
+                  <i class="fas fa-sun fa-2x text-dorado"></i>
                   <p><strong>{{ estadisticas.diasSoleados }}</strong> días soleados</p>
                 </div>
                 <div class="col-6">
-                  <i class="fas fa-cloud-rain fa-2x text-info"></i>
+                  <i class="fas fa-cloud-rain fa-2x text-cielo"></i>
                   <p><strong>{{ estadisticas.diasLluvia }}</strong> días lluviosos</p>
                 </div>
               </div>
@@ -75,13 +75,13 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="card shadow-sm h-100">
-            <div class="card-header bg-primary text-white">
+          <div class="card">
+            <div class="card-header">
               <i class="fas fa-bell me-2"></i>Alertas
             </div>
             <div class="card-body">
               <div v-if="alertas.length === 0" class="text-center">
-                <i class="fas fa-smile-wink fa-3x text-success mb-2"></i>
+                <i class="fas fa-smile-wink fa-3x text-verde mb-2"></i>
                 <p>No hay alertas climáticas</p>
               </div>
               <div v-for="(alerta, idx) in alertas" :key="idx" :class="['alert', alerta.clase]">

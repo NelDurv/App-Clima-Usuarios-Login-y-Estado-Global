@@ -4,8 +4,8 @@
     <main>
       <router-view />
     </main>
-    <footer class="bg-dark mt-5">
-      <p class="text-white text-center p-3 mb-0">
+    <footer>
+      <p class="text-center p-3 mb-0 text-crema">
         © Neldur 2026 - App del Clima Chile | Datos: Open-Meteo
       </p>
     </footer>

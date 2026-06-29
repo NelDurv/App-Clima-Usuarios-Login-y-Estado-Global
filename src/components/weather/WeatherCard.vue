@@ -22,7 +22,7 @@
         <div class="temp-actual">
           {{ convertTemp(clima.temperatura) }}<small>{{ unitSymbol }}</small>
         </div>
-        <div class="temp-range-btn mt-2 bg-dark bg-opacity-25 p-2 rounded">
+        <div class="temp-range-btn mt-2 glass-bg-claro p-2 rounded">
           <span class="text-danger fw-bold">
             <i class="fas fa-arrow-up"></i> {{ convertTemp(tempMax) }}°
           </span>
@@ -34,7 +34,7 @@
       </div>
       
       <div class="mt-4 text-center">
-        <div class="clase-dia-badge d-inline-block mb-2 px-3 py-1 rounded-pill bg-dark bg-opacity-25">
+        <div class="clase-dia-badge d-inline-block mb-2 px-3 py-1 rounded-pill glass-bg-claro">
           <i :class="['fas', iconoClima]"></i> {{ capitalizar(clima.tipoClima) }}
         </div>
         <button class="btn-detalle w-100">Ver pronóstico 6 días</button>
@@ -63,11 +63,11 @@ const favorites = computed(() => store.getters['auth/getFavoriteCities'] || [])
 const isFavoriteCity = computed(() => favorites.value.includes(props.clima.nombre))
 
 const imagenesClima = {
-  "soleado": "/src/assets/img/dia soleado.jpg",
-  "parcial despejado": "/src/assets/img/parcial_despejado.jpg",
-  "nublado": "/src/assets/img/dia-nublado2.jpg",
-  "lluvioso": "/src/assets/img/lluvia.jpg",
-  "tormenta eléctrica": "/src/assets/img/tormenta_electrica.jpg"
+  "soleado": "/src/assets/img/dia soleado.jpeg",
+  "parcial despejado": "/src/assets/img/parcial_despejado.jpeg",
+  "nublado": "/src/assets/img/dia_nublado2.jpeg",
+  "lluvioso": "/src/assets/img/lluvia.jpeg",
+  "tormenta eléctrica": "/src/assets/img/tormenta_electrica.jpeg"
 }
 
 const iconosClima = {

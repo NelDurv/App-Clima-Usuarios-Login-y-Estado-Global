@@ -1,0 +1,438 @@
+/* ========================================
+   Plantilla de Estilos - Machu Picchu
+   Inspirada en blog.viajesmachupicchu.travel
+   Tema: Viajes, cultura andina, naturaleza
+   ======================================== */
+
+/* --- Fuentes --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* --- Variables Globales --- */
+:root {
+  /* Colores principales */
+  --color-primary: #003459;
+  --color-secondary: #54595F;
+  --color-accent: #61CE70;
+  --color-accent-alt: #FFBC7D;
+  --color-text: #7A7A7A;
+  --color-text-dark: #222222;
+  --color-text-light: #999999;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-header-bg: #1c1c1c;
+  --color-footer-bg: #222222;
+
+  /* Fuentes */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Poppins', sans-serif;
+
+  /* Layout */
+  --container-max-width: 1140px;
+  --content-max-width: 800px;
+  --wide-max-width: 1200px;
+  --spacing-section: 3%;
+  --spacing-block: 24px;
+  --border-radius: 12px;
+
+  /* Sombras */
+  --shadow-card: 0 0 2px #aaa;
+  --shadow-card-hover: 0 0 20px #cfcfcf;
+}
+
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-white);
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+/* --- Tipografía --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-dark);
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--color-text-light);
+}
+
+/* --- Layout --- */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.section {
+  padding: var(--spacing-section) 0;
+}
+
+.content-area {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+}
+
+/* --- Header / Navegación --- */
+.site-header {
+  background: var(--color-header-bg);
+  color: var(--color-white);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.top-bar {
+  background: #ffcc05;
+  padding: 6px 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--color-black);
+  letter-spacing: 1px;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+}
+
+.logo {
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.logo img {
+  max-width: 150px;
+}
+
+.main-navigation {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-navigation a {
+  color: var(--color-white);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 15px 0;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.main-navigation a:hover,
+.main-navigation .current-menu-item a {
+  color: #ffcc05;
+}
+
+/* --- Hero / Banner --- */
+.hero {
+  position: relative;
+  height: 350px;
+  background: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  color: var(--color-white);
+}
+
+.hero-content h1,
+.hero-content h2 {
+  color: var(--color-white);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 2rem;
+}
+
+/* --- Card --- */
+.card {
+  background: var(--color-white);
+  padding: 45px 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-card);
+  border-bottom: 3px solid #ffcc05;
+  margin-bottom: 4em;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.card h4 {
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.card h4 a {
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--color-text-dark);
+}
+
+.card p {
+  color: var(--color-text-light);
+  font-size: 15px;
+  margin: 15px 0;
+}
+
+/* --- Botones --- */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 2px;
+  background: #ffcc05;
+  color: var(--color-black);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background: var(--color-header-bg);
+  color: var(--color-white);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background: var(--color-accent);
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  padding: 0 20px;
+}
+
+.sidebar .widget {
+  margin-bottom: 2em;
+  padding: 30px 35px;
+  background: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-card);
+  border-bottom: 3px solid #ffcc05;
+}
+
+.sidebar .widget:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.sidebar .widget h2,
+.sidebar .widget h3 {
+  font-size: 23px;
+  color: #121212;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 2px solid #f1f1f1;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.sidebar .widget h2::after,
+.sidebar .widget h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: #ffcc05;
+  width: 77px;
+  height: 3px;
+  bottom: -3px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px 5px;
+  margin-left: 10px;
+  margin-top: 10px;
+  color: #001837;
+  font-size: 16px;
+}
+
+.sidebar li a {
+  color: #001837;
+  font-size: 16px;
+}
+
+.sidebar li a:hover {
+  color: #ffcc05;
+}
+
+/* --- Grid --- */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.col-4 {
+  flex: 0 0 calc(33.333% - 1rem);
+  max-width: calc(33.333% - 1rem);
+}
+
+.col-8 {
+  flex: 0 0 calc(66.666% - 1rem);
+  max-width: calc(66.666% - 1rem);
+}
+
+/* --- Footer --- */
+.site-footer {
+  background: var(--color-footer-bg);
+  color: var(--color-white);
+  padding: 2rem 0;
+  letter-spacing: 1px;
+}
+
+.site-footer h2,
+.site-footer h3 {
+  font-size: 20px;
+  color: var(--color-white);
+  border-bottom: 1px dashed var(--color-white);
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+.site-footer p,
+.site-footer li a {
+  color: var(--color-white);
+  font-size: 13px;
+}
+
+.site-footer li {
+  padding: 5px 0;
+  list-style: none;
+}
+
+.footer-bottom {
+  background: #ffcc05;
+  padding: 15px 0;
+  text-align: center;
+}
+
+.footer-bottom p,
+.footer-bottom a {
+  color: var(--color-white);
+  margin-bottom: 0;
+}
+
+.footer-bottom a:hover {
+  color: var(--color-black);
+}
+
+/* --- Media Queries --- */
+@media (max-width: 1000px) {
+  .hero {
+    height: 250px;
+  }
+
+  .hero-content h1,
+  .hero-content h2 {
+    font-size: 27px;
+  }
+
+  .col-4,
+  .col-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .main-navigation {
+    display: none;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 560px) {
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.3rem; }
+}

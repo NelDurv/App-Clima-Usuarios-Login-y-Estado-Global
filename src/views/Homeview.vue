@@ -1,14 +1,14 @@
 <template>
-  <div class="bg-secondary py-4 min-vh-100">
+  <div class="py-4 min-vh-100">
     <div class="container">
-      <header class="py-3 text-center text-white">
+      <header class="py-3 text-center">
         <h1 class="display-5">Clima en Ciudades de Chile</h1>
         <p class="lead">Datos actualizados desde Open-Meteo</p>
 
         <div class="row justify-content-center mt-3 g-2">
           <div class="col-md-4 col-12">
             <div class="input-group">
-              <span class="input-group-text bg-white"><i class="fas fa-search"></i></span>
+              <span class="input-group-text"><i class="fas fa-search"></i></span>
               <input
                 type="text"
                 class="form-control"
@@ -41,10 +41,10 @@
       </header>
 
       <div v-if="loadingCities" class="text-center py-5">
-        <div class="spinner-border text-light" role="status">
+        <div class="spinner-border" role="status">
           <span class="visually-hidden">Cargando...</span>
         </div>
-        <p class="text-white mt-3">Cargando clima de ciudades...</p>
+        <p class="mt-3">Cargando clima de ciudades...</p>
       </div>
 
       <div v-else class="grid-container">
@@ -55,7 +55,7 @@
           :convertTemp="convertTemp"
           :unitSymbol="unitSymbol"
         />
-        <div v-if="filteredClimas.length === 0" class="text-center text-white w-100 py-5">
+        <div v-if="filteredClimas.length === 0" class="text-center w-100 py-5">
           <i class="fas fa-city fa-3x mb-3"></i>
           <h4>No se encontraron ciudades con "{{ searchTerm }}"</h4>
         </div>

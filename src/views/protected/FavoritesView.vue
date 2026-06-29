@@ -1,18 +1,18 @@
 <template>
   <div class="container py-4">
     <div class="favorites-header">
-      <h1><i class="fas fa-heart text-danger"></i> Mis Lugares Favoritos</h1>
-      <p class="text-muted">Gestiona tus ciudades favoritas para acceder rápidamente</p>
+      <h1><i class="fas fa-heart text-terracota"></i> Mis Lugares Favoritos</h1>
+      <p>Gestiona tus ciudades favoritas para acceder rápidamente</p>
     </div>
     
     <div v-if="loading" class="text-center py-5">
-      <div class="spinner-border text-primary" role="status">
+      <div class="spinner-border" role="status">
         <span class="visually-hidden">Cargando...</span>
       </div>
     </div>
     
     <div v-else-if="favorites.length === 0" class="empty-state">
-      <i class="fas fa-heart-broken fa-4x text-muted mb-3"></i>
+      <i class="fas fa-heart-broken fa-4x mb-3"></i>
       <h3>No tienes lugares favoritos</h3>
       <p>Explora las ciudades y agrega tus favoritas</p>
       <router-link to="/" class="btn btn-primary">
