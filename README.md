@@ -9,13 +9,19 @@ Aplicación web de clima desarrollada con **Vue 3** que permite consultar el pro
 
 | Tecnología | Versión | Descripción |
 |---|---|---|
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" width="18" height="18"> HTML5 | 5 | Lenguaje de marcado para la estructura web |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" width="18" height="18"> CSS3 | 3 | Lenguaje de estilos para diseño web |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="18" height="18"> JavaScript | ES6+ | Lenguaje de programación del lado del cliente |
 | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" width="18" height="18"> Vue.js | 3.4.0 | Framework progresivo para interfaces de usuario |
 | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" width="18" height="18"> Vue Router | 4.2.5 | Enrutador oficial para Vue.js |
 | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg" width="18" height="18"> Vuex | 4.1.0 | Gestión de estado centralizada |
 | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg" width="18" height="18"> Vite | 6.4.3 | Bundler ultrarrápido para desarrollo |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" width="18" height="18"> npm | 8+ | Gestor de paquetes de Node.js |
 | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/axios/axios-plain.svg" width="18" height="18"> Axios | 1.6.0 | Cliente HTTP para peticiones API |
 | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" width="18" height="18"> Bootstrap | 5.3.8 | Framework CSS para diseño responsive |
 | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fontawesome/fontawesome-original.svg" width="18" height="18"> Font Awesome | 6.0.0 | Biblioteca de iconos vectoriales |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="18" height="18"> Git | 2.x | Sistema de control de versiones |
+| <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" width="18" height="18"> GitHub | - | Plataforma de repositorios remotos |
 
 ---
 
@@ -103,6 +109,42 @@ npm run preview
 | `npm run test:unit` | Ejecuta pruebas unitarias |
 | `npm run test:unit:watch` | Pruebas en modo watch |
 | `npm run test:unit:coverage` | Pruebas con cobertura |
+
+---
+
+## Despliegue en Vercel
+
+La aplicación está desplegada en **Vercel** y puede visitarse en:
+
+**https://modulo7-app.vercel.app** (reemplaza con tu URL real)
+
+### Clonar y desplegar tu propia versión
+
+1. Haz fork de este repositorio desde [GitHub](https://github.com/NelDurv/App-Clima-Usuarios-Login-y-Estado-Global)
+2. Ve a [vercel.com](https://vercel.com) e inicia sesión con tu cuenta de GitHub
+3. Click en **Add New > Project**
+4. Importa el repositorio
+5. Vercel detectará automáticamente Vite como framework
+6. Click en **Deploy**
+
+Cada vez que hagas `git push` a la rama `main`, Vercel se actualizará automáticamente.
+
+---
+
+## Repositorio
+
+El código fuente está disponible en GitHub:
+
+**https://github.com/NelDurv/App-Clima-Usuarios-Login-y-Estado-Global**
+
+Para clonar el proyecto en local:
+
+```bash
+git clone https://github.com/NelDurv/App-Clima-Usuarios-Login-y-Estado-Global.git
+cd "modulo7 App"
+npm install --legacy-peer-deps
+npm run dev
+```
 
 ---
 
